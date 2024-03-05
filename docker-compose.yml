@@ -1,0 +1,20 @@
+---
+version: '3.8'
+services: 
+  mydb:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: abhi
+  apache:
+    image: httpd
+    ports:
+      - 8080:80
+    links:
+      - mydb:raju
+  php:
+    image: php:7.2-apache
+    links:
+      - mydb:ram
+      - apache:sai
+...
+
